@@ -1,0 +1,63 @@
+{
+    "metadata": [
+        {
+            "Model": "",
+            "Average": "",
+            "Information Extraction (IE)": {
+                "Average IE ⬆️": "",
+                "NER": "",
+                "FINER-QRD": "",
+                "FinRED": "",
+                "SC": "",
+                "CD": "",
+                "FNXL": "",
+                "FSRL": ""
+            },
+            "Textual Analysis (TA)": {
+                "Average TA ⬆️": "",
+                "FPB": "",
+                "FiQA-SA": "",
+                "Headlines": "",
+                "FOMC": "",
+                "FinArg-ACC": "",
+                "FinArg-ARC": "",
+                "MultiFin": "",
+                "MA": "",
+                "MLESG": ""
+            },
+            "Question Answering (QA)": {
+                "Average QA ⬆️": "",
+                "FinQA": "",
+                "TATQA": "",
+                "ConvFinQA": ""
+            },
+            "Text Generation (TG)": {
+                "Average TG ⬆️": "",
+                "EDTSUM": "",
+                "ECTSUM": ""
+            },
+            "Risk Management (RM)": {
+                "Average RM ⬆️": "",
+                "German": "",
+                "Australian": "",
+                "LendingClub": "",
+                "ccf": "",
+                "ccfraud": "",
+                "polish": "",
+                "taiwan": "",
+                "portoseguro": "",
+                "travelinsurance": ""
+            },
+            "Forecasting (FO)": {
+                "Average FO ⬆️": "",
+                "BigData22": "",
+                "ACL18": "",
+                "CIKM18": ""
+            },
+            "Decision-Making (DM)": {
+                "Average DM ⬆️": "",
+                "FinTrade": ""
+            }
+        }
+    ]
+}
