@@ -1,0 +1,712 @@
+{
+    "metadata": [
+        {
+            "Model": "internlm/internlm-7b",
+            "Average": "20.4",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "12.6",
+                "NER": "0",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "88",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "47.3",
+                "FPB": "69",
+                "FiQA-SA": "81",
+                "Headlines": "60",
+                "FOMC": "36",
+                "FinArg-ACC": "39",
+                "FinArg-ARC": "33",
+                "MultiFin": "34",
+                "MA": "78",
+                "MLESG": "14"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0",
+                "FinQA": "0",
+                "TATQA": "0",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "6.5",
+                "EDTSUM": "13",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "50.2",
+                "German": "35",
+                "Australian": "56.5",
+                "LendingClub": "57.5",
+                "ccf": "50",
+                "ccfraud": "43.5",
+                "polish": "53.5",
+                "taiwan": "49.5",
+                "portoseguro": "50",
+                "travelinsurance": "56"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "54.7",
+                "BigData22": "56",
+                "ACL18": "51",
+                "CIKM18": "57"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "THUDM/chatglm3-6b",
+            "Average": "20.3",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "15.4",
+                "NER": "25",
+                "FINER-QRD": "2",
+                "FinRED": "0",
+                "SC": "81",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "49.5",
+                "FPB": "74",
+                "FiQA-SA": "56",
+                "Headlines": "66",
+                "FOMC": "47",
+                "FinArg-ACC": "25",
+                "FinArg-ARC": "50",
+                "MultiFin": "47",
+                "MA": "79",
+                "MLESG": "16"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "2.3",
+                "FinQA": "0",
+                "TATQA": "7",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "6.5",
+                "EDTSUM": "13",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "47.8",
+                "German": "35",
+                "Australian": "49",
+                "LendingClub": "48.5",
+                "ccf": "50",
+                "ccfraud": "42.5",
+                "polish": "50",
+                "taiwan": "50.5",
+                "portoseguro": "53",
+                "travelinsurance": "51.5"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "46.3",
+                "BigData22": "47",
+                "ACL18": "50",
+                "CIKM18": "42"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "meta-llama/Llama-2-7b-chat-hf",
+            "Average": "19.9",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "15",
+                "NER": "18",
+                "FINER-QRD": "2",
+                "FinRED": "0",
+                "SC": "85",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "45.9",
+                "FPB": "39",
+                "FiQA-SA": "76",
+                "Headlines": "72",
+                "FOMC": "35",
+                "FinArg-ACC": "46",
+                "FinArg-ARC": "27",
+                "MultiFin": "20",
+                "MA": "70",
+                "MLESG": "3"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "1",
+                "FinQA": "0",
+                "TATQA": "3",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "8.5",
+                "EDTSUM": "17",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "48.9",
+                "German": "51.5",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "50",
+                "ccfraud": "42",
+                "polish": "50",
+                "taiwan": "49.5",
+                "portoseguro": "47.5",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "53.3",
+                "BigData22": "54",
+                "ACL18": "51",
+                "CIKM18": "55"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "meta-llama/Llama-3.2-3B-Instruct",
+            "Average": "19.9",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "12.8",
+                "NER": "1.8",
+                "FINER-QRD": "0.2",
+                "FinRED": "0.2",
+                "SC": "87.2",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "50",
+                "FPB": "63.9",
+                "FiQA-SA": "74.4",
+                "Headlines": "60.3",
+                "FOMC": "43.5",
+                "FinArg-ACC": "42.8",
+                "FinArg-ARC": "48.9",
+                "MultiFin": "missing",
+                "MA": "missing",
+                "MLESG": "missing"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0.1",
+                "FinQA": "0",
+                "TATQA": "0.4",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "0",
+                "EDTSUM": "missing",
+                "ECTSUM": "missing"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "50.3",
+                "German": "51.8",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "50",
+                "ccfraud": "50",
+                "polish": "51.7",
+                "taiwan": "50",
+                "portoseguro": "49.2",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "49.6",
+                "BigData22": "46.7",
+                "ACL18": "49.8",
+                "CIKM18": "52.4"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "mistralai/Mixtral-8x7B-v0.1",
+            "Average": "19.4",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "16",
+                "NER": "24",
+                "FINER-QRD": "5",
+                "FinRED": "0",
+                "SC": "83",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "37.6",
+                "FPB": "29",
+                "FiQA-SA": "16",
+                "Headlines": "60",
+                "FOMC": "37",
+                "FinArg-ACC": "39",
+                "FinArg-ARC": "57",
+                "MultiFin": "37",
+                "MA": "34",
+                "MLESG": "17"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "10.7",
+                "FinQA": "0",
+                "TATQA": "1",
+                "ConvFinQA": "31"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "6",
+                "EDTSUM": "12",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "51.4",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "54",
+                "ccf": "50",
+                "ccfraud": "58",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "50.5",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "45.7",
+                "BigData22": "46",
+                "ACL18": "49",
+                "CIKM18": "42"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "bigcode/starcoder2-7b",
+            "Average": "17.6",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "13.1",
+                "NER": "6.4",
+                "FINER-QRD": "1.7",
+                "FinRED": "0.5",
+                "SC": "82.9",
+                "CD": "0.2",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "35",
+                "FPB": "46.1",
+                "FiQA-SA": "31.7",
+                "Headlines": "60",
+                "FOMC": "34.7",
+                "FinArg-ACC": "13.5",
+                "FinArg-ARC": "46.2",
+                "MultiFin": "31.8",
+                "MA": "35.2",
+                "MLESG": "13.7"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0",
+                "FinQA": "0",
+                "TATQA": "0.1",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "0",
+                "EDTSUM": "missing",
+                "ECTSUM": "missing"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "49.9",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "49.3",
+                "ccfraud": "50",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "50.5",
+                "BigData22": "53.1",
+                "ACL18": "50.1",
+                "CIKM18": "48.3"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "tiiuae/falcon-7b-instruct",
+            "Average": "17.5",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "1.2",
+                "NER": "0",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "8.2",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "40.7",
+                "FPB": "64.3",
+                "FiQA-SA": "74.5",
+                "Headlines": "44.7",
+                "FOMC": "28.9",
+                "FinArg-ACC": "37.3",
+                "FinArg-ARC": "57",
+                "MultiFin": "19.1",
+                "MA": "34.9",
+                "MLESG": "5.2"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "2.3",
+                "FinQA": "0.2",
+                "TATQA": "6.6",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "0",
+                "EDTSUM": "missing",
+                "ECTSUM": "missing"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "49.6",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "49.8",
+                "ccfraud": "42.4",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "54.5"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "49.8",
+                "BigData22": "55.2",
+                "ACL18": "50.6",
+                "CIKM18": "43.7"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "codellama/CodeLlama-7b-hf",
+            "Average": "16.7",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "13.1",
+                "NER": "7",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "85",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "35.5",
+                "FPB": "34",
+                "FiQA-SA": "66",
+                "Headlines": "60",
+                "FOMC": "14",
+                "FinArg-ACC": "28",
+                "FinArg-ARC": "25",
+                "MultiFin": "21",
+                "MA": "54",
+                "MLESG": "10"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0",
+                "FinQA": "0",
+                "TATQA": "0",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "5",
+                "EDTSUM": "10",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "50",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "50",
+                "ccfraud": "50",
+                "polish": "52",
+                "taiwan": "48.5",
+                "portoseguro": "49.5",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "51.3",
+                "BigData22": "52",
+                "ACL18": "51",
+                "CIKM18": "51"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "Go4miii/DISC-FinLLM",
+            "Average": "15.3",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "1.7",
+                "NER": "12",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "0",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "31.7",
+                "FPB": "29",
+                "FiQA-SA": "32",
+                "Headlines": "60",
+                "FOMC": "19",
+                "FinArg-ACC": "29",
+                "FinArg-ARC": "29",
+                "MultiFin": "29",
+                "MA": "29",
+                "MLESG": "29"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0",
+                "FinQA": "0",
+                "TATQA": "0",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "11",
+                "EDTSUM": "22",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "49.8",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "48",
+                "ccfraud": "51",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "49",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "46",
+                "BigData22": "44",
+                "ACL18": "50",
+                "CIKM18": "44"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "baichuan-inc/Baichuan-7B",
+            "Average": "14.2",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "8.1",
+                "NER": "0",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "57",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "29.5",
+                "FPB": "36",
+                "FiQA-SA": "17",
+                "Headlines": "60",
+                "FOMC": "16",
+                "FinArg-ACC": "34",
+                "FinArg-ARC": "17",
+                "MultiFin": "6",
+                "MA": "2",
+                "MLESG": "0"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0",
+                "FinQA": "0",
+                "TATQA": "0",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "1",
+                "EDTSUM": "2",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "49.8",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "51",
+                "ccf": "50",
+                "ccfraud": "48",
+                "polish": "49.5",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "50.3",
+                "BigData22": "53",
+                "ACL18": "50",
+                "CIKM18": "48"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "TongjiFinLab/CFGPT1-sft-7B-Full",
+            "Average": "12.6",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "2.1",
+                "NER": "0",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "15",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "30",
+                "FPB": "35",
+                "FiQA-SA": "42",
+                "Headlines": "61",
+                "FOMC": "16",
+                "FinArg-ACC": "5",
+                "FinArg-ARC": "5",
+                "MultiFin": "5",
+                "MA": "25",
+                "MLESG": "1"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0.3",
+                "FinQA": "0",
+                "TATQA": "0",
+                "ConvFinQA": "1"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "0.5",
+                "EDTSUM": "1",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "49.5",
+                "German": "50",
+                "Australian": "45",
+                "LendingClub": "50.5",
+                "ccf": "50",
+                "ccfraud": "50.5",
+                "polish": "49",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "50.5"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "44.7",
+                "BigData22": "45",
+                "ACL18": "48",
+                "CIKM18": "41"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        },
+        {
+            "Model": "FinGPT/fingpt-mt_llama2-7b_lora",
+            "Average": "8.5",
+            "Information Extraction (IE)": {
+                "Average IE \u2b06\ufe0f": "0",
+                "NER": "0",
+                "FINER-QRD": "0",
+                "FinRED": "0",
+                "SC": "0",
+                "CD": "0",
+                "FNXL": "0",
+                "FSRL": "0"
+            },
+            "Textual Analysis (TA)": {
+                "Average TA \u2b06\ufe0f": "11",
+                "FPB": "0",
+                "FiQA-SA": "0",
+                "Headlines": "60",
+                "FOMC": "0",
+                "FinArg-ACC": "0",
+                "FinArg-ARC": "0",
+                "MultiFin": "0",
+                "MA": "0",
+                "MLESG": "0"
+            },
+            "Question Answering (QA)": {
+                "Average QA \u2b06\ufe0f": "0",
+                "FinQA": "0",
+                "TATQA": "0",
+                "ConvFinQA": "0"
+            },
+            "Text Generation (TG)": {
+                "Average TG \u2b06\ufe0f": "0",
+                "EDTSUM": "0",
+                "ECTSUM": "0"
+            },
+            "Risk Management (RM)": {
+                "Average RM \u2b06\ufe0f": "50.2",
+                "German": "50",
+                "Australian": "50",
+                "LendingClub": "50",
+                "ccf": "50",
+                "ccfraud": "50",
+                "polish": "51",
+                "taiwan": "50.5",
+                "portoseguro": "50",
+                "travelinsurance": "50"
+            },
+            "Forecasting (FO)": {
+                "Average FO \u2b06\ufe0f": "47.7",
+                "BigData22": "45",
+                "ACL18": "49",
+                "CIKM18": "49"
+            },
+            "Decision-Making (DM)": {
+                "Average DM \u2b06\ufe0f": "0",
+                "FinTrade": "missing"
+            }
+        }
+    ]
+}
