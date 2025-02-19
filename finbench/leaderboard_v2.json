@@ -1,0 +1,810 @@
+{
+    "metadata": [
+        {
+            "model": "TheFinAI/finma-7b-full",
+            "average": "21.5",
+            "type": "instruction-tuned",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "12.6",
+                "ner": "69",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "19",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "48.7",
+                "fpb": "88",
+                "fiqa_sa": "79",
+                "headlines": "97",
+                "fomc": "49",
+                "finarg_acc": "27",
+                "finarg_arc": "8",
+                "multifin": "14",
+                "ma": "45",
+                "mlesg": "0"
+            },
+            "question_answering": {
+                "average_qa_up": "8",
+                "finqa": "4",
+                "tatqa": "0",
+                "convfinqa": "20"
+            },
+            "text_generation": {
+                "average_tg_up": "6.5",
+                "edtsum": "13",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "49.7",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "50",
+                "ccfraud": "47",
+                "polish": "49.5",
+                "taiwan": "50",
+                "portoseguro": "50.5",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "50.7",
+                "bigdata22": "51",
+                "acl18": "51",
+                "cikm18": "50"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "internlm/internlm-7b",
+            "average": "20.4",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "12.6",
+                "ner": "0",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "88",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "47.3",
+                "fpb": "69",
+                "fiqa_sa": "81",
+                "headlines": "60",
+                "fomc": "36",
+                "finarg_acc": "39",
+                "finarg_arc": "33",
+                "multifin": "34",
+                "ma": "78",
+                "mlesg": "14"
+            },
+            "question_answering": {
+                "average_qa_up": "0",
+                "finqa": "0",
+                "tatqa": "0",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "6.5",
+                "edtsum": "13",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "50.2",
+                "german": "35",
+                "australian": "56.5",
+                "lendingclub": "57.5",
+                "ccf": "50",
+                "ccfraud": "43.5",
+                "polish": "53.5",
+                "taiwan": "49.5",
+                "portoseguro": "50",
+                "travelinsurance": "56"
+            },
+            "forecasting": {
+                "average_fo_up": "54.7",
+                "bigdata22": "56",
+                "acl18": "51",
+                "cikm18": "57"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "THUDM/chatglm3-6b",
+            "average": "20.3",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "15.4",
+                "ner": "25",
+                "finer_qrd": "2",
+                "finred": "0",
+                "sc": "81",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "49.5",
+                "fpb": "74",
+                "fiqa_sa": "56",
+                "headlines": "66",
+                "fomc": "47",
+                "finarg_acc": "25",
+                "finarg_arc": "50",
+                "multifin": "47",
+                "ma": "79",
+                "mlesg": "16"
+            },
+            "question_answering": {
+                "average_qa_up": "2.3",
+                "finqa": "0",
+                "tatqa": "7",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "6.5",
+                "edtsum": "13",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "47.8",
+                "german": "35",
+                "australian": "49",
+                "lendingclub": "48.5",
+                "ccf": "50",
+                "ccfraud": "42.5",
+                "polish": "50",
+                "taiwan": "50.5",
+                "portoseguro": "53",
+                "travelinsurance": "51.5"
+            },
+            "forecasting": {
+                "average_fo_up": "46.3",
+                "bigdata22": "47",
+                "acl18": "50",
+                "cikm18": "42"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "meta-llama/Llama-2-7b-chat-hf",
+            "average": "19.9",
+            "type": "fine-tuned",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "15",
+                "ner": "18",
+                "finer_qrd": "2",
+                "finred": "0",
+                "sc": "85",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "45.9",
+                "fpb": "39",
+                "fiqa_sa": "76",
+                "headlines": "72",
+                "fomc": "35",
+                "finarg_acc": "46",
+                "finarg_arc": "27",
+                "multifin": "20",
+                "ma": "70",
+                "mlesg": "3"
+            },
+            "question_answering": {
+                "average_qa_up": "1",
+                "finqa": "0",
+                "tatqa": "3",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "8.5",
+                "edtsum": "17",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "48.9",
+                "german": "51.5",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "50",
+                "ccfraud": "42",
+                "polish": "50",
+                "taiwan": "49.5",
+                "portoseguro": "47.5",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "53.3",
+                "bigdata22": "54",
+                "acl18": "51",
+                "cikm18": "55"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "meta-llama/Llama-3.2-3B-Instruct",
+            "average": "19.9",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "12.8",
+                "ner": "1.8",
+                "finer_qrd": "0.2",
+                "finred": "0.2",
+                "sc": "87.2",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "50",
+                "fpb": "63.9",
+                "fiqa_sa": "74.4",
+                "headlines": "60.3",
+                "fomc": "43.5",
+                "finarg_acc": "42.8",
+                "finarg_arc": "48.9",
+                "multifin": "missing",
+                "ma": "missing",
+                "mlesg": "missing"
+            },
+            "question_answering": {
+                "average_qa_up": "0.1",
+                "finqa": "0",
+                "tatqa": "0.4",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "0",
+                "edtsum": "missing",
+                "ectsum": "missing"
+            },
+            "risk_management": {
+                "average_rm_up": "50.3",
+                "german": "51.8",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "50",
+                "ccfraud": "50",
+                "polish": "51.7",
+                "taiwan": "50",
+                "portoseguro": "49.2",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "49.6",
+                "bigdata22": "46.7",
+                "acl18": "49.8",
+                "cikm18": "52.4"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "mistralai/Mixtral-8x7B-v0.1",
+            "average": "19.4",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "16",
+                "ner": "24",
+                "finer_qrd": "5",
+                "finred": "0",
+                "sc": "83",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "37.6",
+                "fpb": "29",
+                "fiqa_sa": "16",
+                "headlines": "60",
+                "fomc": "37",
+                "finarg_acc": "39",
+                "finarg_arc": "57",
+                "multifin": "37",
+                "ma": "34",
+                "mlesg": "17"
+            },
+            "question_answering": {
+                "average_qa_up": "10.7",
+                "finqa": "0",
+                "tatqa": "1",
+                "convfinqa": "31"
+            },
+            "text_generation": {
+                "average_tg_up": "6",
+                "edtsum": "12",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "51.4",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "54",
+                "ccf": "50",
+                "ccfraud": "58",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "50.5",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "45.7",
+                "bigdata22": "46",
+                "acl18": "49",
+                "cikm18": "42"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "bigcode/starcoder2-7b",
+            "average": "17.6",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "13.1",
+                "ner": "6.4",
+                "finer_qrd": "1.7",
+                "finred": "0.5",
+                "sc": "82.9",
+                "cd": "0.2",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "35",
+                "fpb": "46.1",
+                "fiqa_sa": "31.7",
+                "headlines": "60",
+                "fomc": "34.7",
+                "finarg_acc": "13.5",
+                "finarg_arc": "46.2",
+                "multifin": "31.8",
+                "ma": "35.2",
+                "mlesg": "13.7"
+            },
+            "question_answering": {
+                "average_qa_up": "0",
+                "finqa": "0",
+                "tatqa": "0.1",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "0",
+                "edtsum": "missing",
+                "ectsum": "missing"
+            },
+            "risk_management": {
+                "average_rm_up": "49.9",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "49.3",
+                "ccfraud": "50",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "50.5",
+                "bigdata22": "53.1",
+                "acl18": "50.1",
+                "cikm18": "48.3"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "tiiuae/falcon-7b-instruct",
+            "average": "17.5",
+            "type": "fine-tuned",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "1.2",
+                "ner": "0",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "8.2",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "40.7",
+                "fpb": "64.3",
+                "fiqa_sa": "74.5",
+                "headlines": "44.7",
+                "fomc": "28.9",
+                "finarg_acc": "37.3",
+                "finarg_arc": "57",
+                "multifin": "19.1",
+                "ma": "34.9",
+                "mlesg": "5.2"
+            },
+            "question_answering": {
+                "average_qa_up": "2.3",
+                "finqa": "0.2",
+                "tatqa": "6.6",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "0",
+                "edtsum": "missing",
+                "ectsum": "missing"
+            },
+            "risk_management": {
+                "average_rm_up": "49.6",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "49.8",
+                "ccfraud": "42.4",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "54.5"
+            },
+            "forecasting": {
+                "average_fo_up": "49.8",
+                "bigdata22": "55.2",
+                "acl18": "50.6",
+                "cikm18": "43.7"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "codellama/CodeLlama-7b-hf",
+            "average": "16.7",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "13.1",
+                "ner": "7",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "85",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "35.5",
+                "fpb": "34",
+                "fiqa_sa": "66",
+                "headlines": "60",
+                "fomc": "14",
+                "finarg_acc": "28",
+                "finarg_arc": "25",
+                "multifin": "21",
+                "ma": "54",
+                "mlesg": "10"
+            },
+            "question_answering": {
+                "average_qa_up": "0",
+                "finqa": "0",
+                "tatqa": "0",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "5",
+                "edtsum": "10",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "50",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "50",
+                "ccfraud": "50",
+                "polish": "52",
+                "taiwan": "48.5",
+                "portoseguro": "49.5",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "51.3",
+                "bigdata22": "52",
+                "acl18": "51",
+                "cikm18": "51"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "Go4miii/DISC-FinLLM",
+            "average": "15.3",
+            "type": "fine-tuned",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "1.7",
+                "ner": "12",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "0",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "31.7",
+                "fpb": "29",
+                "fiqa_sa": "32",
+                "headlines": "60",
+                "fomc": "19",
+                "finarg_acc": "29",
+                "finarg_arc": "29",
+                "multifin": "29",
+                "ma": "29",
+                "mlesg": "29"
+            },
+            "question_answering": {
+                "average_qa_up": "0",
+                "finqa": "0",
+                "tatqa": "0",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "11",
+                "edtsum": "22",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "49.8",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "48",
+                "ccfraud": "51",
+                "polish": "50",
+                "taiwan": "50",
+                "portoseguro": "49",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "46",
+                "bigdata22": "44",
+                "acl18": "50",
+                "cikm18": "44"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "baichuan-inc/Baichuan-7B",
+            "average": "14.2",
+            "type": "pretrained",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "8.1",
+                "ner": "0",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "57",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "29.5",
+                "fpb": "36",
+                "fiqa_sa": "17",
+                "headlines": "60",
+                "fomc": "16",
+                "finarg_acc": "34",
+                "finarg_arc": "17",
+                "multifin": "6",
+                "ma": "2",
+                "mlesg": "0"
+            },
+            "question_answering": {
+                "average_qa_up": "0",
+                "finqa": "0",
+                "tatqa": "0",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "1",
+                "edtsum": "2",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "49.8",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "51",
+                "ccf": "50",
+                "ccfraud": "48",
+                "polish": "49.5",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "50.3",
+                "bigdata22": "53",
+                "acl18": "50",
+                "cikm18": "48"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "TongjiFinLab/CFGPT1-sft-7B-Full",
+            "average": "12.6",
+            "type": "instruction-tuned",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "2.1",
+                "ner": "0",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "15",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "30",
+                "fpb": "35",
+                "fiqa_sa": "42",
+                "headlines": "61",
+                "fomc": "16",
+                "finarg_acc": "5",
+                "finarg_arc": "5",
+                "multifin": "5",
+                "ma": "25",
+                "mlesg": "1"
+            },
+            "question_answering": {
+                "average_qa_up": "0.3",
+                "finqa": "0",
+                "tatqa": "0",
+                "convfinqa": "1"
+            },
+            "text_generation": {
+                "average_tg_up": "0.5",
+                "edtsum": "1",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "49.5",
+                "german": "50",
+                "australian": "45",
+                "lendingclub": "50.5",
+                "ccf": "50",
+                "ccfraud": "50.5",
+                "polish": "49",
+                "taiwan": "50",
+                "portoseguro": "50",
+                "travelinsurance": "50.5"
+            },
+            "forecasting": {
+                "average_fo_up": "44.7",
+                "bigdata22": "45",
+                "acl18": "48",
+                "cikm18": "41"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        },
+        {
+            "model": "FinGPT/fingpt-mt_llama2-7b_lora",
+            "average": "8.5",
+            "type": "instruction-tuned",
+            "architecture": "",
+            "precision": "float16",
+            "information_extraction": {
+                "average_ie_up": "0",
+                "ner": "0",
+                "finer_qrd": "0",
+                "finred": "0",
+                "sc": "0",
+                "cd": "0",
+                "fnxl": "0",
+                "fsrl": "0"
+            },
+            "textual_analysis": {
+                "average_ta_up": "11",
+                "fpb": "0",
+                "fiqa_sa": "0",
+                "headlines": "60",
+                "fomc": "0",
+                "finarg_acc": "0",
+                "finarg_arc": "0",
+                "multifin": "0",
+                "ma": "0",
+                "mlesg": "0"
+            },
+            "question_answering": {
+                "average_qa_up": "0",
+                "finqa": "0",
+                "tatqa": "0",
+                "convfinqa": "0"
+            },
+            "text_generation": {
+                "average_tg_up": "0",
+                "edtsum": "0",
+                "ectsum": "0"
+            },
+            "risk_management": {
+                "average_rm_up": "50.2",
+                "german": "50",
+                "australian": "50",
+                "lendingclub": "50",
+                "ccf": "50",
+                "ccfraud": "50",
+                "polish": "51",
+                "taiwan": "50.5",
+                "portoseguro": "50",
+                "travelinsurance": "50"
+            },
+            "forecasting": {
+                "average_fo_up": "47.7",
+                "bigdata22": "45",
+                "acl18": "49",
+                "cikm18": "49"
+            },
+            "decision_making": {
+                "average_dm_up": "0",
+                "fintrade": "missing"
+            }
+        }
+    ]
+}
