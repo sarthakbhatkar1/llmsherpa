@@ -1,0 +1,85 @@
+{
+  "models": [
+    {
+      "name": "GPT-4o",
+      "benchmarks": {
+        "logical_reasoning": {
+          "MMLU": "88.7%",
+          "GPQA": "53.6%",
+          "MATH": "76.6%",
+          "DROP": "83.4%"
+        },
+        "code_generation": {
+          "HumanEval": "90.2%"
+        },
+        "question_answering": {
+          "MGSM": "90.5%"
+        }
+      },
+      "sources": [
+        "https://wielded.com/blog/gpt-4o-benchmark-detailed-comparison-with-claude-and-gemini"
+      ]
+    },
+    {
+      "name": "GPT-4",
+      "benchmarks": {
+        "logical_reasoning": {
+          "MMLU": "86.5%",
+          "GPQA": "49.1%",
+          "MATH": "72.2%",
+          "DROP": "85.4%"
+        },
+        "code_generation": {
+          "HumanEval": "87.6%"
+        },
+        "question_answering": {
+          "MGSM": "88.6%"
+        }
+      },
+      "sources": [
+        "https://wielded.com/blog/gpt-4o-benchmark-detailed-comparison-with-claude-and-gemini"
+      ]
+    },
+    {
+      "name": "GPT-3.5",
+      "benchmarks": {
+        "logical_reasoning": {
+          "MMLU": "70.0%",
+          "GPQA": "28.1%",
+          "MATH": "34.1%",
+          "DROP": "64.1%"
+        },
+        "code_generation": {
+          "HumanEval": "48.1%"
+        }
+      },
+      "sources": [
+        "https://wielded.com/blog/gpt-4o-benchmark-detailed-comparison-with-claude-and-gemini"
+      ]
+    },
+    {
+      "name": "text-embedding-ada-002",
+      "benchmarks": {
+        "information_extraction": {
+          "MIRACL": "31.4%",
+          "MTEB": "61.0%"
+        }
+      },
+      "sources": [
+        "https://openai.com/index/new-embedding-models-and-api-updates/"
+      ]
+    },
+    {
+      "name": "text-embedding-3-small",
+      "benchmarks": {
+        "information_extraction": {
+          "MIRACL": "44.0%",
+          "MTEB": "62.3%"
+        }
+      },
+      "sources": [
+        "https://openai.com/index/new-embedding-models-and-api-updates/"
+      ]
+    }
+  ]
+}
