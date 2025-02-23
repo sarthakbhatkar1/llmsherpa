@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import pandas as pd
 
-# Sample data with multiple entries
+# Sample data reflecting the new structure
 sample_data = [
     {
         "modelName": "ModelA",
@@ -31,28 +31,13 @@ sample_data = [
                    "openai_api_base": "https://api.xai.com"},
         "endpoints": ["chat", "completions"],
         "metadata": {
-            "information_extraction": {"EntityRec": "88%", "RelationExt": "79%"},
-            "language_understanding": {"MMLU": {"score": "82%"}, "GPQA": {"score": "79%"}},
-            "question_answering": {"MGSM": {"score": "80%"}, "TriviaQA": {"score": "83%"}},
-            "logical_reasoning": {"LogicTest": "85%", "ARG": "82%"},
-            "code_generation": {"HumanEval": {"score": "87%"}, "MBPP": {"score": "90%"}}
-        }
-    },
-    {
-        "modelName": "ModelC",
-        "deploymentServer": "Server3",
-        "description": "Balanced model",
-        "llmProvider": "xAI",
-        "llmModel": "Grok-C",
-        "config": {"type": "hybrid", "openai_auth_type": {}, "openai_deployment_name": "deployC",
-                   "openai_api_base": "https://api.xai.com"},
-        "endpoints": ["chat", "completions"],
-        "metadata": {
-            "information_extraction": {"EntityRec": "86%", "RelationExt": "84%"},
-            "language_understanding": {"MMLU": {"score": "80%"}, "GPQA": {"score": "81%"}},
-            "question_answering": {"MGSM": {"score": "78%"}, "TriviaQA": {"score": "82%"}},
-            "logical_reasoning": {"LogicTest": "87%", "ARG": "83%"},
-            "code_generation": {"HumanEval": {"score": "89%"}, "MBPP": {"score": "88%"}}
+            "category_benchmark": {
+                "information_extraction": {"EntityRec": "88%", "RelationExt": "79%"},
+                "language_understanding": {"MMLU": {"score": "82%"}, "GPQA": {"score": "79%"}},
+                "question_answering": {"MGSM": {"score": "80%"}, "TriviaQA": {"score": "83%"}},
+                "logical_reasoning": {"LogicTest": "85%", "ARG": "82%"},
+                "code_generation": {"HumanEval": {"score": "87%"}, "MBPP": {"score": "90%"}}
+            }
         }
     }
 ]
@@ -70,17 +55,26 @@ def extract_basic_info(model):
     }
 
 
+def get_benchmark_data(model, category):
+    """Get benchmark data, handling different nesting structures"""
+    if "category_benchmark" in model["metadata"]:
+        return model["metadata"]["category_benchmark"].get(category, {})
+    return model["metadata"].get(category, {})
+
+
 def create_benchmark_table(data, category):
     """Create a dynamic table for a benchmark category"""
     all_metrics = set()
     for model in data:
-        all_metrics.update(model["metadata"][category].keys())
+        benchmark_data = get_benchmark_data(model, category)
+        all_metrics.update(benchmark_data.keys())
 
     table_data = {}
     for model in data:
         model_scores = {}
+        benchmark_data = get_benchmark_data(model, category)
         for metric in all_metrics:
-            score = model["metadata"][category].get(metric, {})
+            score = benchmark_data.get(metric, {})
             model_scores[metric] = score.get("score", score) if isinstance(score, dict) else score
         table_data[model["modelName"]] = model_scores
 
@@ -97,7 +91,7 @@ def main():
 
     # Title
     st.title("Dynamic Model Benchmark Dashboard")
-    st.markdown("Compare benchmarks across multiple AI models in tabular format")
+    st.markdown("Compare benchmarks across multiple AI models with varying metadata structures")
 
     # Sidebar
     st.sidebar.header("Options")
@@ -127,7 +121,10 @@ def main():
     ]
 
     for category_key, category_title in categories:
-        if filtered_data and category_key in filtered_data[0]["metadata"]:
+        # Check if category exists in at least one model's structure
+        exists = any(category_key in get_benchmark_data(model, category_key) or
+                     category_key in model["metadata"] for model in filtered_data)
+        if exists:
             st.subheader(category_title)
             df = create_benchmark_table(filtered_data, category_key)
             st.dataframe(df, use_container_width=True)
