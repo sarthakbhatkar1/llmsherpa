@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Your JSON data with some missing benchmark data
+# Your JSON data with multiple benchmarks per category
 sample_data = [
     {
         "modelName": "AlphaModel",
@@ -26,11 +26,23 @@ sample_data = [
                 "version": "3.1"
             },
             "externalBenchmark": {
-                "informationExtraction": {"IEBench": {"metric": {"score": "0.92", "source": "IE2024"}}},
-                "languageUnderstanding": {"MMLU": {"metric": {"score": "0.85", "source": "MMLU2023"}}},
-                "questionAnswering": {"SQuAD": {"metric": {"score": "0.89", "source": "SQuAD2.0"}}},
+                "informationExtraction": {
+                    "IEBench": {"metric": {"score": "0.92", "source": "IE2024"}},
+                    "NERTest": {"metric": {"score": "0.89", "source": "NER2023"}}
+                },
+                "languageUnderstanding": {
+                    "MMLU": {"metric": {"score": "0.85", "source": "MMLU2023"}},
+                    "GLUE": {"metric": {"score": "0.87", "source": "GLUE2023"}}
+                },
+                "questionAnswering": {
+                    "SQuAD": {"metric": {"score": "0.89", "source": "SQuAD2.0"}},
+                    "TriviaQA": {"metric": {"score": "0.84", "source": "TQA2023"}}
+                },
                 "logicalReasoning": {"LogicTest": {"metric": {"score": "0.78", "source": "LT2024"}}},
-                "codeGeneration": {"HumanEval": {"metric": {"score": "0.82", "source": "HE2023"}}},
+                "codeGeneration": {
+                    "HumanEval": {"metric": {"score": "0.82", "source": "HE2023"}},
+                    "MBPP": {"metric": {"score": "0.80", "source": "MBPP2023"}}
+                },
                 "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.91", "source": "TER2024"}}}
             },
             "bionicsBenchmark": {}
@@ -59,10 +71,16 @@ sample_data = [
             },
             "externalBenchmark": {
                 "informationExtraction": {"IEBench": {"metric": {"score": "0.87", "source": "IE2024"}}},
-                "languageUnderstanding": {"MMLU": {"metric": {"score": "0.79", "source": "MMLU2023"}}},
-                # Missing questionAnswering data intentionally
+                "languageUnderstanding": {
+                    "MMLU": {"metric": {"score": "0.79", "source": "MMLU2023"}},
+                    "GLUE": {"metric": {"score": "0.81", "source": "GLUE2023"}}
+                },
+                # Missing questionAnswering data
                 "logicalReasoning": {"LogicTest": {"metric": {"score": "0.85", "source": "LT2024"}}},
-                "codeGeneration": {"HumanEval": {"metric": {"score": "0.94", "source": "HE2023"}}},
+                "codeGeneration": {
+                    "HumanEval": {"metric": {"score": "0.94", "source": "HE2023"}},
+                    "MBPP": {"metric": {"score": "0.91", "source": "MBPP2023"}}
+                },
                 "textEmbeddingRetrieval": {}  # Empty benchmark data
             },
             "bionicsBenchmark": {}
@@ -90,9 +108,12 @@ sample_data = [
                 "version": "2.0"
             },
             "externalBenchmark": {
-                # Missing informationExtraction data intentionally
+                # Missing informationExtraction data
                 "languageUnderstanding": {"MMLU": {"metric": {"score": "0.91", "source": "MMLU2023"}}},
-                "questionAnswering": {"SQuAD": {"metric": {"score": "0.93", "source": "SQuAD2.0"}}},
+                "questionAnswering": {
+                    "SQuAD": {"metric": {"score": "0.93", "source": "SQuAD2.0"}},
+                    "TriviaQA": {"metric": {"score": "0.88", "source": "TQA2023"}}
+                },
                 "logicalReasoning": {"LogicTest": {"metric": {"score": "0.82", "source": "LT2024"}}},
                 "codeGeneration": {},  # Empty benchmark data
                 "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.85", "source": "TER2024"}}}
@@ -132,17 +153,20 @@ def get_benchmark_data(model, category):
     return model.get("metadata", {}).get("externalBenchmark", {}).get(category, {})
 
 def create_benchmark_table(data, category):
-    """Create a table for a benchmark category with sources in brackets, handling missing data"""
+    """Create a table for a benchmark category with multiple benchmarks"""
     all_metrics = set()
     table_data = {}
     
     # Collect all unique metrics across models
     for model in data:
         benchmark_data = get_benchmark_data(model, category)
-        if benchmark_data:  # Only add metrics if data exists
+        if benchmark_data:
             all_metrics.update(benchmark_data.keys())
 
-    # Build table data
+    if not all_metrics:
+        return None
+
+    # Build table data with multi-level columns
     for model in data:
         model_scores = {}
         benchmark_data = get_benchmark_data(model, category)
@@ -165,18 +189,18 @@ def create_benchmark_table(data, category):
     return df if not df.empty else None
 
 def create_single_benchmark_chart(data, selected_categories):
-    """Create a single bar chart for all selected benchmarks, handling missing data"""
+    """Create a single bar chart for all selected benchmarks with multiple metrics"""
     chart_data = []
     for category_key in selected_categories:
         for model in data:
             benchmark_data = get_benchmark_data(model, category_key)
-            if benchmark_data:  # Only process if data exists
+            if benchmark_data:
                 for metric, score_dict in benchmark_data.items():
                     metric_data = score_dict.get("metric", {})
                     score = metric_data.get("score", "N/A")
                     if score != "N/A":
                         try:
-                            score_value = float(score) * 100  # Convert to percentage
+                            score_value = float(score) * 100
                             chart_data.append({
                                 "Model": model["modelName"],
                                 "Category": category_key.replace('ation', '').replace('ing', '').title(),
@@ -186,7 +210,7 @@ def create_single_benchmark_chart(data, selected_categories):
                         except (ValueError, TypeError):
                             continue
 
-    if not chart_data:  # Return None if no valid data
+    if not chart_data:
         return None
 
     df = pd.DataFrame(chart_data)
@@ -200,9 +224,14 @@ def create_single_benchmark_chart(data, selected_categories):
         barmode="group",
         title="Benchmark Comparison Across Categories",
         labels={"Score": "Score (%)", "Category_Metric": "Category - Metric"},
-        height=600
+        height=600,
+        width=1000  # Increased width to accommodate more bars
     )
-    fig.update_layout(xaxis={'tickangle': 45})
+    fig.update_layout(
+        xaxis={'tickangle': 45},
+        bargap=0.2,
+        legend_title_text='Model'
+    )
     return fig
 
 def main():
@@ -215,7 +244,7 @@ def main():
 
     # Title
     st.title("Dynamic Model Benchmark Dashboard")
-    st.markdown("Compare benchmarks across models with sources in brackets")
+    st.markdown("Compare multiple benchmarks per category across models with sources in brackets")
 
     # Sidebar Filters
     st.sidebar.header("Filters")
@@ -245,7 +274,7 @@ def main():
 
     # Benchmark Tables
     st.header("Benchmark Results")
-    st.markdown("*Sources appear in brackets next to scores. 'N/A' indicates missing data.*")
+    st.markdown("*Multiple benchmarks per category shown with sources in brackets. 'N/A' for missing data.*")
 
     for category_key in filtered_categories:
         df = create_benchmark_table(filtered_data, category_key)
@@ -254,7 +283,7 @@ def main():
             st.subheader(category_title)
             height = min(400, max(100, len(df) * 35))
             st.dataframe(df, use_container_width=True, height=height)
-        elif df is None:
+        else:
             category_title = next(title for key, title in categories if key == category_key)
             st.subheader(category_title)
             st.write("No benchmark data available for this category.")
