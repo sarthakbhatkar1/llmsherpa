@@ -5,3 +5,6 @@ https://llm.extractum.io/model/mistralai%2FMixtral-8x7B-Instruct-v0.1,8t3fi9hMpQ
 
 
 https://llm.extractum.io/model/meta-llama%2FMeta-Llama-3.1-70B-Instruct,1X0vKgY8t5zKRRtXredrU4
+
+
+https://openai.com/index/new-embedding-models-and-api-updates/
