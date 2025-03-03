@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Your JSON data
+# Your JSON data with some missing benchmark data
 sample_data = [
     {
         "modelName": "AlphaModel",
@@ -60,10 +60,10 @@ sample_data = [
             "externalBenchmark": {
                 "informationExtraction": {"IEBench": {"metric": {"score": "0.87", "source": "IE2024"}}},
                 "languageUnderstanding": {"MMLU": {"metric": {"score": "0.79", "source": "MMLU2023"}}},
-                "questionAnswering": {"SQuAD": {"metric": {"score": "0.83", "source": "SQuAD2.0"}}},
+                # Missing questionAnswering data intentionally
                 "logicalReasoning": {"LogicTest": {"metric": {"score": "0.85", "source": "LT2024"}}},
                 "codeGeneration": {"HumanEval": {"metric": {"score": "0.94", "source": "HE2023"}}},
-                "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.88", "source": "TER2024"}}}
+                "textEmbeddingRetrieval": {}  # Empty benchmark data
             },
             "bionicsBenchmark": {}
         }
@@ -90,11 +90,11 @@ sample_data = [
                 "version": "2.0"
             },
             "externalBenchmark": {
-                "informationExtraction": {"IEBench": {"metric": {"score": "0.88", "source": "IE2024"}}},
+                # Missing informationExtraction data intentionally
                 "languageUnderstanding": {"MMLU": {"metric": {"score": "0.91", "source": "MMLU2023"}}},
                 "questionAnswering": {"SQuAD": {"metric": {"score": "0.93", "source": "SQuAD2.0"}}},
                 "logicalReasoning": {"LogicTest": {"metric": {"score": "0.82", "source": "LT2024"}}},
-                "codeGeneration": {"HumanEval": {"metric": {"score": "0.76", "source": "HE2023"}}},
+                "codeGeneration": {},  # Empty benchmark data
                 "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.85", "source": "TER2024"}}}
             },
             "bionicsBenchmark": {}
@@ -102,78 +102,92 @@ sample_data = [
     }
 ]
 
-
 def extract_basic_info(model):
     """Extract basic model information including config and features for table"""
+    config = model.get('config', {})
     config_str = (
-        f"Type: {model['config']['type']}, "
-        f"Auth: {model['config']['openai_auth_type'].get('key', 'N/A')}, "
-        f"Deployment: {model['config']['openai_deployment_name']}, "
-        f"API Base: {model['config']['openai_api_base']}"
+        f"Type: {config.get('type', 'N/A')}, "
+        f"Auth: {config.get('openai_auth_type', {}).get('key', 'N/A')}, "
+        f"Deployment: {config.get('openai_deployment_name', 'N/A')}, "
+        f"API Base: {config.get('openai_api_base', 'N/A')}"
     )
     features = model.get('metadata', {}).get('feature', {})
     return {
-        "Model Name": model["modelName"],
-        "Server": model["deploymentServer"],
-        "Description": model["description"],
-        "Provider": model["llmProvider"],
-        "LLM Model": model["llmModel"],
-        "Endpoints": ", ".join(model["endpoints"]),
+        "Model Name": model.get("modelName", "N/A"),
+        "Server": model.get("deploymentServer", "N/A"),
+        "Description": model.get("description", "N/A"),
+        "Provider": model.get("llmProvider", "N/A"),
+        "LLM Model": model.get("llmModel", "N/A"),
+        "Endpoints": ", ".join(model.get("endpoints", [])),
         "Config": config_str,
-        "Creator": features.get("creator", ""),
-        "License": features.get("license", ""),
-        "Context Window": features.get("contextWindow", ""),
+        "Creator": features.get("creator", "N/A"),
+        "License": features.get("license", "N/A"),
+        "Context Window": features.get("contextWindow", "N/A"),
         "Supported Modality": ", ".join(features.get("supportedModality", [])),
-        "Version": features.get("version", "")
+        "Version": features.get("version", "N/A")
     }
 
-
 def get_benchmark_data(model, category):
-    """Get benchmark data from externalBenchmark structure"""
-    return model["metadata"]["externalBenchmark"].get(category, {})
-
+    """Get benchmark data from externalBenchmark structure with fallback"""
+    return model.get("metadata", {}).get("externalBenchmark", {}).get(category, {})
 
 def create_benchmark_table(data, category):
-    """Create a table for a benchmark category with sources in brackets"""
+    """Create a table for a benchmark category with sources in brackets, handling missing data"""
     all_metrics = set()
     table_data = {}
-
+    
     # Collect all unique metrics across models
     for model in data:
         benchmark_data = get_benchmark_data(model, category)
-        all_metrics.update(benchmark_data.keys())
+        if benchmark_data:  # Only add metrics if data exists
+            all_metrics.update(benchmark_data.keys())
 
     # Build table data
     for model in data:
         model_scores = {}
         benchmark_data = get_benchmark_data(model, category)
         for metric in all_metrics:
-            if metric in benchmark_data:
-                score = benchmark_data[metric]["metric"]["score"]
-                source = benchmark_data[metric]["metric"]["source"]
-                model_scores[metric] = f"{float(score) * 100}% ({source})"
+            if benchmark_data and metric in benchmark_data:
+                metric_data = benchmark_data[metric].get("metric", {})
+                score = metric_data.get("score", "N/A")
+                source = metric_data.get("source", "N/A")
+                if score != "N/A":
+                    try:
+                        score = f"{float(score)*100}%"
+                    except (ValueError, TypeError):
+                        score = "N/A"
+                model_scores[metric] = f"{score} ({source})" if source != "N/A" else score
             else:
                 model_scores[metric] = "N/A"
         table_data[model["modelName"]] = model_scores
 
-    return pd.DataFrame(table_data).T
-
+    df = pd.DataFrame(table_data).T
+    return df if not df.empty else None
 
 def create_single_benchmark_chart(data, selected_categories):
-    """Create a single bar chart for all selected benchmarks"""
+    """Create a single bar chart for all selected benchmarks, handling missing data"""
     chart_data = []
     for category_key in selected_categories:
         for model in data:
             benchmark_data = get_benchmark_data(model, category_key)
-            for metric, score_dict in benchmark_data.items():
-                score = score_dict["metric"]["score"]
-                score_value = float(score) * 100  # Convert to percentage
-                chart_data.append({
-                    "Model": model["modelName"],
-                    "Category": category_key.replace('ation', '').replace('ing', '').title(),
-                    "Metric": metric,
-                    "Score": score_value
-                })
+            if benchmark_data:  # Only process if data exists
+                for metric, score_dict in benchmark_data.items():
+                    metric_data = score_dict.get("metric", {})
+                    score = metric_data.get("score", "N/A")
+                    if score != "N/A":
+                        try:
+                            score_value = float(score) * 100  # Convert to percentage
+                            chart_data.append({
+                                "Model": model["modelName"],
+                                "Category": category_key.replace('ation', '').replace('ing', '').title(),
+                                "Metric": metric,
+                                "Score": score_value
+                            })
+                        except (ValueError, TypeError):
+                            continue
+
+    if not chart_data:  # Return None if no valid data
+        return None
 
     df = pd.DataFrame(chart_data)
     df["Category_Metric"] = df["Category"] + " - " + df["Metric"]
@@ -190,7 +204,6 @@ def create_single_benchmark_chart(data, selected_categories):
     )
     fig.update_layout(xaxis={'tickangle': 45})
     return fig
-
 
 def main():
     # Page config
@@ -232,23 +245,28 @@ def main():
 
     # Benchmark Tables
     st.header("Benchmark Results")
-    st.markdown("*Sources appear in brackets next to scores*")
+    st.markdown("*Sources appear in brackets next to scores. 'N/A' indicates missing data.*")
 
     for category_key in filtered_categories:
-        exists = any(bool(get_benchmark_data(model, category_key)) for model in filtered_data)
-        if exists:
+        df = create_benchmark_table(filtered_data, category_key)
+        if df is not None and not df.empty:
             category_title = next(title for key, title in categories if key == category_key)
             st.subheader(category_title)
-            df = create_benchmark_table(filtered_data, category_key)
             height = min(400, max(100, len(df) * 35))
             st.dataframe(df, use_container_width=True, height=height)
+        elif df is None:
+            category_title = next(title for key, title in categories if key == category_key)
+            st.subheader(category_title)
+            st.write("No benchmark data available for this category.")
 
     # Single Benchmark Chart
     if filtered_categories and filtered_data:
         st.header("Benchmark Visualization")
         fig = create_single_benchmark_chart(filtered_data, filtered_categories)
-        st.plotly_chart(fig, use_container_width=True)
-
+        if fig:
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.write("No valid benchmark data available for visualization.")
 
 if __name__ == "__main__":
     main()
