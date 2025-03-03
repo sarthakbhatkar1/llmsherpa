@@ -2,81 +2,116 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Sample data with config and benchmarks
+# Your JSON data
 sample_data = [
     {
-        "modelName": "ModelA",
+        "modelName": "AlphaModel",
         "deploymentServer": "Server1",
-        "description": "High-performance model",
+        "description": "Advanced language processing model",
         "llmProvider": "xAI",
-        "llmModel": "Grok-A",
+        "llmModel": "Grok-3",
         "config": {
-            "type": "advanced",
-            "openai_auth_type": {"method": "api_key"},
-            "openai_deployment_name": "deployA",
+            "type": "standard",
+            "openai_auth_type": {"key": "api_key"},
+            "openai_deployment_name": "alpha-deploy",
             "openai_api_base": "https://api.xai.com"
         },
-        "endpoints": ["chat", "completions"],
+        "endpoints": ["chat", "completions", "embeddings"],
         "metadata": {
-            "information_extraction": {"EntityRec": "85%", "RelationExt": "82%"},
-            "language_understanding": {
-                "MMLU": {"score": "78%", "description": "Multi-task language understanding"},
-                "GPQA": {"score": "82%", "description": "General-purpose question answering"}
+            "feature": {
+                "creator": "xAI Team",
+                "license": "MIT",
+                "contextWindow": "8192",
+                "supportedModality": ["text", "code"],
+                "version": "3.1"
             },
-            "question_answering": {
-                "MGSM": {"score": "75%", "description": "Math problem solving"},
-                "TriviaQA": {"score": "80%"}
+            "externalBenchmark": {
+                "informationExtraction": {"IEBench": {"metric": {"score": "0.92", "source": "IE2024"}}},
+                "languageUnderstanding": {"MMLU": {"metric": {"score": "0.85", "source": "MMLU2023"}}},
+                "questionAnswering": {"SQuAD": {"metric": {"score": "0.89", "source": "SQuAD2.0"}}},
+                "logicalReasoning": {"LogicTest": {"metric": {"score": "0.78", "source": "LT2024"}}},
+                "codeGeneration": {"HumanEval": {"metric": {"score": "0.82", "source": "HE2023"}}},
+                "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.91", "source": "TER2024"}}}
             },
-            "logical_reasoning": {"LogicTest": "88%", "ARG": "85%"},
-            "code_generation": {
-                "HumanEval": {"score": "91%", "description": "Code completion accuracy"},
-                "MBPP": {"score": "87%"}
-            }
+            "bionicsBenchmark": {}
         }
     },
     {
-        "modelName": "ModelB",
+        "modelName": "BetaModel",
         "deploymentServer": "Server2",
-        "description": "Efficient model",
-        "llmProvider": "xAI",
-        "llmModel": "Grok-B",
+        "description": "Specialized code generation model",
+        "llmProvider": "BetaCorp",
+        "llmModel": "CodeMaster",
         "config": {
-            "type": "standard",
-            "openai_auth_type": {"method": "oauth"},
-            "openai_deployment_name": "deployB",
-            "openai_api_base": "https://api.xai.com"
+            "type": "optimized",
+            "openai_auth_type": {"key": "token"},
+            "openai_deployment_name": "beta-deploy",
+            "openai_api_base": "https://api.betacorp.com"
         },
         "endpoints": ["chat", "completions"],
         "metadata": {
-            "category_benchmark": {
-                "information_extraction": {"EntityRec": "88%", "RelationExt": "79%"},
-                "language_understanding": {
-                    "MMLU": {"score": "82%", "description": "Multi-task language understanding"},
-                    "GPQA": {"score": "79%", "description": "General-purpose QA"}
-                },
-                "question_answering": {
-                    "MGSM": {"score": "80%", "description": "Mathematical reasoning"},
-                    "TriviaQA": {"score": "83%"}
-                },
-                "logical_reasoning": {"LogicTest": "85%", "ARG": "82%"},
-                "code_generation": {
-                    "HumanEval": {"score": "87%", "description": "Programming tasks"},
-                    "MBPP": {"score": "90%"}
-                }
-            }
+            "feature": {
+                "creator": "Beta Team",
+                "license": "Apache 2.0",
+                "contextWindow": "4096",
+                "supportedModality": ["code", "text"],
+                "version": "1.5"
+            },
+            "externalBenchmark": {
+                "informationExtraction": {"IEBench": {"metric": {"score": "0.87", "source": "IE2024"}}},
+                "languageUnderstanding": {"MMLU": {"metric": {"score": "0.79", "source": "MMLU2023"}}},
+                "questionAnswering": {"SQuAD": {"metric": {"score": "0.83", "source": "SQuAD2.0"}}},
+                "logicalReasoning": {"LogicTest": {"metric": {"score": "0.85", "source": "LT2024"}}},
+                "codeGeneration": {"HumanEval": {"metric": {"score": "0.94", "source": "HE2023"}}},
+                "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.88", "source": "TER2024"}}}
+            },
+            "bionicsBenchmark": {}
+        }
+    },
+    {
+        "modelName": "GammaModel",
+        "deploymentServer": "Server3",
+        "description": "General purpose AI assistant",
+        "llmProvider": "GammaAI",
+        "llmModel": "Assist-1",
+        "config": {
+            "type": "basic",
+            "openai_auth_type": {"key": "secret"},
+            "openai_deployment_name": "gamma-deploy",
+            "openai_api_base": "https://api.gammaai.com"
+        },
+        "endpoints": ["chat"],
+        "metadata": {
+            "feature": {
+                "creator": "Gamma Team",
+                "license": "GPL",
+                "contextWindow": "16384",
+                "supportedModality": ["text"],
+                "version": "2.0"
+            },
+            "externalBenchmark": {
+                "informationExtraction": {"IEBench": {"metric": {"score": "0.88", "source": "IE2024"}}},
+                "languageUnderstanding": {"MMLU": {"metric": {"score": "0.91", "source": "MMLU2023"}}},
+                "questionAnswering": {"SQuAD": {"metric": {"score": "0.93", "source": "SQuAD2.0"}}},
+                "logicalReasoning": {"LogicTest": {"metric": {"score": "0.82", "source": "LT2024"}}},
+                "codeGeneration": {"HumanEval": {"metric": {"score": "0.76", "source": "HE2023"}}},
+                "textEmbeddingRetrieval": {"TERBench": {"metric": {"score": "0.85", "source": "TER2024"}}}
+            },
+            "bionicsBenchmark": {}
         }
     }
 ]
 
 
 def extract_basic_info(model):
-    """Extract basic model information including config for table"""
+    """Extract basic model information including config and features for table"""
     config_str = (
         f"Type: {model['config']['type']}, "
-        f"Auth: {model['config']['openai_auth_type'].get('method', 'N/A')}, "
+        f"Auth: {model['config']['openai_auth_type'].get('key', 'N/A')}, "
         f"Deployment: {model['config']['openai_deployment_name']}, "
         f"API Base: {model['config']['openai_api_base']}"
     )
+    features = model.get('metadata', {}).get('feature', {})
     return {
         "Model Name": model["modelName"],
         "Server": model["deploymentServer"],
@@ -84,36 +119,41 @@ def extract_basic_info(model):
         "Provider": model["llmProvider"],
         "LLM Model": model["llmModel"],
         "Endpoints": ", ".join(model["endpoints"]),
-        "Config": config_str
+        "Config": config_str,
+        "Creator": features.get("creator", ""),
+        "License": features.get("license", ""),
+        "Context Window": features.get("contextWindow", ""),
+        "Supported Modality": ", ".join(features.get("supportedModality", [])),
+        "Version": features.get("version", "")
     }
 
 
 def get_benchmark_data(model, category):
-    """Get benchmark data, handling different nesting structures"""
-    if "category_benchmark" in model["metadata"]:
-        return model["metadata"]["category_benchmark"].get(category, {})
-    return model["metadata"].get(category, {})
+    """Get benchmark data from externalBenchmark structure"""
+    return model["metadata"]["externalBenchmark"].get(category, {})
 
 
 def create_benchmark_table(data, category):
-    """Create a table for a benchmark category with descriptions in brackets"""
+    """Create a table for a benchmark category with sources in brackets"""
     all_metrics = set()
+    table_data = {}
+
+    # Collect all unique metrics across models
     for model in data:
         benchmark_data = get_benchmark_data(model, category)
         all_metrics.update(benchmark_data.keys())
 
-    table_data = {}
+    # Build table data
     for model in data:
         model_scores = {}
         benchmark_data = get_benchmark_data(model, category)
         for metric in all_metrics:
-            score_dict = benchmark_data.get(metric, {})
-            if isinstance(score_dict, dict):
-                score = score_dict.get("score", "")
-                desc = score_dict.get("description", "")
-                model_scores[metric] = f"{score} ({desc})" if desc else score
+            if metric in benchmark_data:
+                score = benchmark_data[metric]["metric"]["score"]
+                source = benchmark_data[metric]["metric"]["source"]
+                model_scores[metric] = f"{float(score) * 100}% ({source})"
             else:
-                model_scores[metric] = score_dict
+                model_scores[metric] = "N/A"
         table_data[model["modelName"]] = model_scores
 
     return pd.DataFrame(table_data).T
@@ -126,11 +166,11 @@ def create_single_benchmark_chart(data, selected_categories):
         for model in data:
             benchmark_data = get_benchmark_data(model, category_key)
             for metric, score_dict in benchmark_data.items():
-                score = score_dict.get("score", score_dict) if isinstance(score_dict, dict) else score_dict
-                score_value = float(score.strip("%")) if score and isinstance(score, str) else 0
+                score = score_dict["metric"]["score"]
+                score_value = float(score) * 100  # Convert to percentage
                 chart_data.append({
                     "Model": model["modelName"],
-                    "Category": category_key.replace('_', ' ').title(),
+                    "Category": category_key.replace('ation', '').replace('ing', '').title(),
                     "Metric": metric,
                     "Score": score_value
                 })
@@ -162,7 +202,7 @@ def main():
 
     # Title
     st.title("Dynamic Model Benchmark Dashboard")
-    st.markdown("Compare benchmarks across models with descriptions in brackets")
+    st.markdown("Compare benchmarks across models with sources in brackets")
 
     # Sidebar Filters
     st.sidebar.header("Filters")
@@ -174,11 +214,12 @@ def main():
 
     # Category filter
     categories = [
-        ("information_extraction", "Information Extraction"),
-        ("language_understanding", "Language Understanding"),
-        ("question_answering", "Question Answering"),
-        ("logical_reasoning", "Logical Reasoning"),
-        ("code_generation", "Code Generation")
+        ("informationExtraction", "Information Extraction"),
+        ("languageUnderstanding", "Language Understanding"),
+        ("questionAnswering", "Question Answering"),
+        ("logicalReasoning", "Logical Reasoning"),
+        ("codeGeneration", "Code Generation"),
+        ("textEmbeddingRetrieval", "Text Embedding Retrieval")
     ]
     category_options = [title for _, title in categories]
     selected_categories = st.sidebar.multiselect("Select Categories", category_options, default=category_options)
@@ -191,11 +232,10 @@ def main():
 
     # Benchmark Tables
     st.header("Benchmark Results")
-    st.markdown("*Descriptions appear in brackets next to scores when available*")
+    st.markdown("*Sources appear in brackets next to scores*")
 
     for category_key in filtered_categories:
-        exists = any(category_key in get_benchmark_data(model, category_key) or
-                     category_key in model["metadata"] for model in filtered_data)
+        exists = any(bool(get_benchmark_data(model, category_key)) for model in filtered_data)
         if exists:
             category_title = next(title for key, title in categories if key == category_key)
             st.subheader(category_title)
