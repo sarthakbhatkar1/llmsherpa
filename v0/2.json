@@ -1,0 +1,61 @@
+{
+  "models": {
+    "GPT-4o Vision": {
+      "MMMU": {
+        "score": 69.1,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "ChartQA": {
+        "score": 85.7,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "AI2 Diagram Understanding": {
+        "score": 94.8,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "DocVQA": {
+        "score": 88.4,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "MathVista": {
+        "score": 63.8,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "LocateBench": {
+        "score": "Lagged behind human performance by over 10%",
+        "source": "https://arxiv.org/abs/2410.19808"
+      },
+      "PARROT-360V": {
+        "score": "28% - 56%",
+        "source": "https://arxiv.org/abs/2411.15201"
+      },
+      "IllusionBench": {
+        "true_false_accuracy": 80.59,
+        "multiple_choice_accuracy": 76.75,
+        "source": "https://arxiv.org/abs/2501.00848"
+      }
+    },
+    "Llama 3.2 90B Vision": {
+      "MMMU": {
+        "score": 60.3,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "ChartQA": {
+        "score": 85.5,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "AI2 Diagram Understanding": {
+        "score": 91.1,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "DocVQA": {
+        "score": 90.1,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      },
+      "MathVista": {
+        "score": 57.3,
+        "source": "https://aimlapi.com/comparisons/llama-3-2-90b-vision-vs-gpt-4o-vision"
+      }
+    }
+  }
+}
