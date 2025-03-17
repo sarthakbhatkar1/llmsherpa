@@ -1,0 +1,33 @@
+[
+  {
+    "benchmark": "Massive Multitask Multimodal Understanding (MMMU)",
+    "gpt4o_score": 69.1,
+    "comparison_model": "Llama 3.2 90B Vision",
+    "comparison_score": 60.3,
+    "source": "https://docsbot.ai/models/compare/gpt-4/llama-3-2-90b-vision-instruct"
+  },
+  {
+    "benchmark": "Visual Question Answering (VQAv2)",
+    "gpt4o_score": null,
+    "comparison_model": "Llama 3.2 90B Vision",
+    "comparison_score": 78.1,
+    "source": "https://docsbot.ai/models/compare/gpt-4/llama-3-2-90b-vision-instruct"
+  },
+  {
+    "benchmark": "Document Visual Question Answering (DocVQA)",
+    "gpt4o_score": 88.4,
+    "comparison_model": "Llama 3.2 90B Vision",
+    "comparison_score": 90.1,
+    "source": "https://docsbot.ai/models/compare/gpt-4/llama-3-2-90b-vision-instruct"
+  },
+  {
+    "benchmark": "Massive Multitask Language Understanding (MMLU) (5-shot)",
+    "gpt4_score": 86.4,
+    "source": "https://docsbot.ai/models/compare/gpt-4/llama-3-2-90b-vision-instruct"
+  },
+  {
+    "benchmark": "HellaSwag (10-shot)",
+    "gpt4_score": 95.3,
+    "source": "https://docsbot.ai/models/compare/gpt-4/llama-3-2-90b-vision-instruct"
+  }
+]
