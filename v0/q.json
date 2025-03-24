@@ -1,0 +1,1 @@
+Model card information can be retrieved using SDKs and APIs, where the response typically includes a metadata field containing relevant details. This metadata usually provides information such as the model name, description, deployment details, capabilities, limitations, and benchmark results.
